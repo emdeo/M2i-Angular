@@ -1,7 +1,7 @@
 # M2i-Angular
-Introduction aux single page app dynamiques avec le meilleur framework JS de tous les temps
+Introduction aux single page app dynamiques avec le meilleur framework JS de tous les temps.
 
-### Installer et utiliser Angular avec NPM
+### Installer et utiliser Angular
 
 Dans un terminal, entrer les commandes suivantes :
 
