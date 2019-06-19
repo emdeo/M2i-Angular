@@ -1,0 +1,14 @@
+<input type="text" class="form-control" (input)="onModifieNomServeur($event)">
+<br>
+<button class="btn btn-primary" [disabled]="!clicBouton" (click)="onCreationServeur()">Créer serveur
+  {{nomServeur}}</button>
+<!-- <p>{{serverCreationStatus}}</p> -->  
+
+<p *ngIf="serveurCree; else aucunServeur">Serveur créé avec le nom '{{nomServeur}}'</p>
+<ng-template #aucunServeur>
+  <p>Aucun serveur créé</p>
+</ng-template>
+
+
+
+
