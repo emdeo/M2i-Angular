@@ -33,7 +33,11 @@ Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu e
 Fichier **app.component.html** :
 
     <!-- Bouton -->
-    <button class="btn btn-primary" (click)="onToggleDetails()">Afficher mot de passe</button>
+    <button class="btn btn-primary"
+      (click)="onToggleDetails()"
+      [disabled]="logs.length > 10">
+        Afficher mot de passe
+    </button>
 
     <!-- Mot de passe -->
     <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
@@ -44,7 +48,7 @@ Fichier **app.component.html** :
       {{i}} - {{logItem}}
     </div>
 
-Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()* à chaque événement *click*.
+Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()* à chaque événement *click*. Il contient également un **property binding** qui empêche de cliquer dessus plus de 10 fois.
 
 Le paragraphe contient un **property binding** qui attribue la valeur de *showSecret* à la propriété *hidden*. Il contient également un **string interpolation** qui récupère la valeur de *mdp* pour l'afficher.
 
@@ -77,6 +81,13 @@ Fichier **app.component.css** :
 
     .white-text{
         color: white;
+    }
+
+    p{
+        margin: 2%;
+        padding: 20px;
+        background-color: palegreen;
+        border: 1px solid green;
     }
 
 Résultat :
