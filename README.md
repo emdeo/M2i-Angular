@@ -91,3 +91,5 @@ Fichier **app.component.css** :
     }
 
 Résultat :
+
+<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angapp2.PNG" alt="maquette angapp2"  width="55%" height="55%">
