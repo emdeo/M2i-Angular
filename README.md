@@ -32,25 +32,16 @@ Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu e
 
 Fichier **app.component.html** :
 
-    <div class="container">
-      <br>
-      
-      <!-- Bouton -->
-      <button class="btn btn-primary" (click)="onToggleDetails()">
-        Afficher mot de passe
-      </button>
-      
-      <!-- Mot de passe -->
-      <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
-      
-      <!-- Log -->
-      <div
-        *ngFor="let logItem of logs; let i = index "
-        [ngStyle]="{backgroundColor: i >= 5 ? 'dodgerblue' : 'transparent'}"
-        [ngClass]="{'white-text': i >= 5}">
-            {{i}} - {{logItem}}
-      </div>
-      
+    <!-- Bouton -->
+    <button class="btn btn-primary" (click)="onToggleDetails()">Afficher mot de passe</button>
+
+    <!-- Mot de passe -->
+    <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
+
+    <!-- Log -->
+    <div *ngFor="let logItem of logs; let i = index " [ngStyle]="{backgroundColor: i >= 5 ? 'dodgerblue' : 'transparent'}"
+      [ngClass]="{'white-text': i >= 5}">
+      {{i}} - {{logItem}}
     </div>
 
 Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()* à chaque événement *click*.
