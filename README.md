@@ -27,3 +27,42 @@ Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu e
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular1.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular2.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular3.PNG" width="55%" height="55%">
+
+### Exercice 2 - angapp2
+
+Fichier **app.component.html** :
+
+    <div class="container">
+      <br>
+      <button class="btn btn-primary" (click)="onToggleDetails()">Afficher mot de passe</button>
+      <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
+    </div>
+
+Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()* à chaque événement *click*.
+
+Le paragraphe contient un **property binding** qui attribue la valeur de *showSecret* à la propriété *hidden*. Il contient également un **string interpolation** qui récupère la valeur de *mdp* pour l'afficher.
+
+Ce code permet d'afficher et de cacher un paragraphe à chaque fois que le bouton est cliqué.
+
+Fichier **app.component.ts** :
+
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
+    })
+    export class AppComponent {
+      title = 'angapp2'
+      mdp = "4l1c3"
+      showSecret = false
+      log = []
+
+      onToggleDetails(){
+        this.showSecret = !this.showSecret
+        this.log.push(new Date())
+      }
+    }
+
+Résultat :
