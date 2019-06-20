@@ -45,10 +45,10 @@ Fichier **app.component.html** :
       
       <!-- Log -->
       <div
-        *ngFor="let logItem of logs; "
-        [ngStyle]="{backgroundColor: logItem >= 5 ? 'dodgerblue' : 'transparent'}"
-        [ngClass]="{'white-text': logItem >= 5}">
-            {{logItem}}
+        *ngFor="let logItem of logs; let i = index "
+        [ngStyle]="{backgroundColor: i >= 5 ? 'dodgerblue' : 'transparent'}"
+        [ngClass]="{'white-text': i >= 5}">
+            {{i}} - {{logItem}}
       </div>
       
     </div>
@@ -57,7 +57,7 @@ Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()
 
 Le paragraphe contient un **property binding** qui attribue la valeur de *showSecret* à la propriété *hidden*. Il contient également un **string interpolation** qui récupère la valeur de *mdp* pour l'afficher.
 
-Le **div** sert à afficher la liste des moments où le bouton a été cliqué (variable *logs*). Chaque logItem est affiché en blanc (*[ngClass] = 'white-text'*) sur fond bleu (*[ngStyle] = backgroundColor*).
+Le **div** sert à afficher une liste de logs. Les 5 premiers logs sont affichés normalement, les suivants sont en blanc (*[ngClass] = 'white-text'*) sur fond bleu (*[ngStyle] = backgroundColor*).
 
 A chaque clic de bouton, ce code permet d'afficher le mot de passe et le moment où le bouton a été cliqué.
 
