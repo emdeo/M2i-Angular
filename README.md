@@ -35,11 +35,21 @@ Fichier **app.component.html** :
     <div class="container">
       <br>
       
+      <!-- Bouton -->
       <button class="btn btn-primary" (click)="onToggleDetails()">
         Afficher mot de passe
       </button>
       
+      <!-- Mot de passe -->
       <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
+      
+      <!-- Log -->
+      <div
+        *ngFor="let logItem of logs; "
+        [ngStyle]="{backgroundColor: logItem >= 5 ? 'dodgerblue' : 'transparent'}"
+        [ngClass]="{'white-text': logItem >= 5}">
+            {{logItem}}
+      </div>
       
     </div>
 
@@ -47,7 +57,9 @@ Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()
 
 Le paragraphe contient un **property binding** qui attribue la valeur de *showSecret* à la propriété *hidden*. Il contient également un **string interpolation** qui récupère la valeur de *mdp* pour l'afficher.
 
-Ce code permet d'afficher et de cacher un paragraphe à chaque fois que le bouton est cliqué.
+Le **div** sert à afficher la liste des moments où le bouton a été cliqué (variable *logs*). Chaque logItem est affiché en blanc (*[ngClass] = 'white-text'*) sur fond bleu (*[ngStyle] = backgroundColor*).
+
+A chaque clic de bouton, ce code permet d'afficher le mot de passe et le moment où le bouton a été cliqué.
 
 Fichier **app.component.ts** :
 
@@ -62,12 +74,18 @@ Fichier **app.component.ts** :
       title = 'angapp2'
       mdp = "4l1c3"
       showSecret = false
-      log = []
+      logs = []
 
       onToggleDetails(){
         this.showSecret = !this.showSecret
-        this.log.push(new Date())
+        this.logs.push(new Date())
       }
+    }
+
+Fichier **app.component.css** :
+
+    .white-text{
+        color: white;
     }
 
 Résultat :
