@@ -12,7 +12,7 @@ Dans un terminal, entrer les commandes suivantes :
     ng g c NouveauDossier
 
 La 1ère commande installe Angular. Pour pouvoir l'utiliser sous Windows, pensez à ajouter le chemin d'accès au fichier 'ng' (chemin habituel : "*C:\Users\Administrateur\AppData\Roaming\npm*").
-Ce chemin peut être défini dans la variable PATH de l'environnement système.
+Ce chemin peut être défini dans la variable *PATH* de l'environnement système.
 
 Les 2e et 3e commandes servent à créer et se déplacer dans un nouveau projet.
 
