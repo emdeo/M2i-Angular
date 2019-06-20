@@ -34,10 +34,13 @@ Fichier **app.component.html** :
 
     <div class="container">
       <br>
+      
       <button class="btn btn-primary" (click)="onToggleDetails()">
         Afficher mot de passe
       </button>
+      
       <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
+      
     </div>
 
 Le bouton contient un **event binding** qui lance la méthode *onToggleDetails()* à chaque événement *click*.
