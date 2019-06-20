@@ -25,7 +25,6 @@ Le 5e commande est utile pour générer un nouveau dossier dans notre projet con
 Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu en cours.
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular1.PNG" width="55%" height="55%">
-<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular2.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular3.PNG" width="55%" height="55%">
 
 ### Exercice 2 - angapp2
