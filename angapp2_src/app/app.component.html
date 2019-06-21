@@ -1,0 +1,12 @@
+<br>
+<!-- Bouton -->
+<button class="btn btn-primary" (click)="onToggleDetails()" [disabled]="logs.length > 10">Afficher mot de passe</button>
+
+<!-- Mot de passe -->
+<p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
+
+<!-- Log -->
+<div *ngFor="let logItem of logs; let i = index " [ngStyle]="{backgroundColor: i >= 5 ? 'dodgerblue' : 'transparent'}"
+  [ngClass]="{'white-text': i >= 5}">
+  {{i}} - {{logItem}}
+</div>

@@ -1,0 +1,10 @@
+.white-text{
+    color: white;
+}
+
+p{
+    margin: 2%;
+    padding: 20px;
+    background-color: palegreen;
+    border: 1px solid green;
+}
