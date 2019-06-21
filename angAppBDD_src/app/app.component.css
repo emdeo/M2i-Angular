@@ -1,0 +1,17 @@
+/* Centrer le texte du jumbotron */
+.center {
+    display:block;
+    margin-left:auto;
+    text-align:center;
+}
+
+/* Marge des boutons */
+.espacer {
+    margin: 3px;
+}
+
+/* Aligner les éléments du container au milieu de la page */
+.aumilieu{
+    width: 99%;
+    margin: 2% 21%;
+}

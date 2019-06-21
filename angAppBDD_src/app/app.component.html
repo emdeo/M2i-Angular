@@ -1,0 +1,40 @@
+<div class="jumbotron center">
+  <h1 class="display-5">{{titreJumbo}}</h1>
+  <p class="lead">{{leadJumbo}}</p>
+</div>
+
+<div class="container">
+
+  <!-- '#postForm' recquiert le module '@angular/forms' -->
+  <form #postForm="ngForm" (ngSubmit)="onCreerPost(postForm.value)">
+
+    <div class="form-group aumilieu">
+      <h5>Titre</h5>
+      <input type="text" class="form-control col-sm-7" id="txtTitre" required ngModel name="txtTitre"
+        [placeholder]="titrePost" [value]="titrePost">
+    </div>
+
+    <div class="form-group aumilieu">
+      <h5>Contenu</h5>
+      <textarea class="form-control col-sm-7" id="txtContenu" required ngModel name="txtContenu"
+        [placeholder]="contenuPost"></textarea>
+    </div>
+
+    <div class="form-group aumilieu">
+      <button class="btn btn-primary espacer" id="btnPoster" [disabled]="!postForm.valid">Poster</button>
+    </div>
+
+    <hr class="my-3">
+
+    <div class="form-group aumilieu">
+      <button type="button" class="btn btn-primary espacer">Lire posts</button>
+      <button type="button" class="btn btn-warning espacer">Vider posts</button>
+    </div>
+
+    <div class="form-group aumilieu">
+      <p *ngFor="let post of lstPosts">{{post}}</p>
+    </div>
+
+  </form>
+
+</div>
