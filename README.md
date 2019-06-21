@@ -5,7 +5,7 @@ Introduction aux single page app dynamiques avec le meilleur framework JS de tou
 
 Dans un terminal, entrer les commandes suivantes :
 
-    npm install - @angular/cli
+    npm install -g @angular/cli
     ng new myAngApp
     cd myAngApp
     ng serve
