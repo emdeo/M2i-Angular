@@ -175,7 +175,7 @@ Le constructeur de la classe est vide. Il prend en paramètre une requête HTTP.
 
       }
 
-**ngOnInit()** s'éxécute au lancement de la page. Il exécute **readAllBDD()**.
+**ngOnInit()** s'exécute au chargement de la page. Il lance **readAllBDD()**.
 
       ngOnInit() {
         this.readallBDD();
@@ -201,7 +201,7 @@ Envoyer une requête *GET*.
         this.readallBDD()
       }
 
-Récupérer les données stockées dans la base de données.
+Récupérer les données stockées dans la BDD.
 
       private readallBDD() {
 
@@ -238,7 +238,7 @@ Jumbotron avec texte centré horizontalement (voir classe *center* dans **app.co
       <p class="lead">{{leadJumbo}}</p>
     </div>
 
-Le reste du code est dans un **div** de class *container*. On commence par créer un **formulaire** (attention : '#postForm' recquiert le module '@angular/forms').
+Le reste du code est dans un **div** de class *container*. On commence par créer un **formulaire** (attention : *#postForm* recquiert le module *@angular/forms*).
 
     <form #postForm="ngForm" (ngSubmit)="onCreerPost(postForm.value)">
         ...
@@ -271,7 +271,7 @@ Les deux premières **div** contiennent un titre et un **input** centrés horizo
         </textarea>
     </div>
 
-Un bouton permettant de poster les inputs dans la base de données. Le bouton est désactivé tant que le formulaire n'est pas rempli (propriété *required* des inputs ci-dessus).
+Un bouton permettant de poster les inputs dans la BDD. Le bouton est désactivé tant que le formulaire n'est pas rempli (propriété *required* des inputs ci-dessus).
 
     <div class="form-group aumilieu">
         <button
