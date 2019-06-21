@@ -1,6 +1,12 @@
 # M2i-Angular
 Introduction aux single page app dynamiques avec le meilleur framework JS de tous les temps.
 
+## Table des matières
+1. [Installer et utiliser Angular](#installer-et-utiliser-angular)
+2. [Projet 1 - myAngApp](#projet-1-myangapp)
+3. [Projet 2 - angapp2](#projet-2-angapp2)
+4. [Projet 3 - angAppBDD](#projet-3-angappbdd)
+
 ## Installer et utiliser Angular
 
 Dans un terminal, entrer les commandes suivantes :
@@ -19,6 +25,8 @@ Les 2e et 3e commandes servent à créer et se déplacer dans un nouveau projet.
 La 4e commande permet de démarrer le serveur sur lequel tourne l'application (habituellement sur le port 4200).
 
 Le 5e commande est utile pour générer un nouveau dossier dans notre projet contenant tous les fichiers, classes et méthodes générés automatiquement.
+
+[Table des Matières](#table-des-matieres)
 
 ## Projet 1 - myAngApp
 
