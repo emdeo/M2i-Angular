@@ -26,7 +26,7 @@ La 4e commande permet de démarrer le serveur sur lequel tourne l'application (h
 
 Le 5e commande est utile pour générer un nouveau dossier dans notre projet contenant tous les fichiers, classes et méthodes générés automatiquement.
 
-[Table des Matières](#table-des-matieres)
+[Table des matières](#table-des-matieres)
 
 ## Projet 1 - myAngApp
 
