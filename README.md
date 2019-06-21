@@ -110,6 +110,9 @@ A chaque clic de bouton, ce code permet d'afficher le mot de passe et le moment 
 Intro à Angular et la gestion de BDD (Firebase). L'application permet à l'utilisateur de sauvegarder les données d'un formulaire dans une base de donénes et de récupérer ces sauvegardes pour les afficher sur la page.
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd1.PNG" width="55%" height="55%">
+
+Contenu de la base de données Firebase.
+
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd2.PNG" width="55%" height="55%">
 
 ### Fichier **app.module.ts**
@@ -124,10 +127,12 @@ La première étape consiste à importer et nommer les modules.
 On définit ensuite le rôle des modules dans la clé **imports** de **NgModule**.
 
     @NgModule({
-      imports: [
+        ...
+        imports: [
         FormsModule,
         HttpClientModule
-      ]
+        ]
+        ...
     })
 
 Le reste du fichier est inchangé.
