@@ -42,7 +42,9 @@ Fichier **app.component.html** :
     <p [hidden]="showSecret">Mot de passe : "{{mdp}}"</p>
 
     <!-- Log -->
-    <div *ngFor="let logItem of logs; let i = index " [ngStyle]="{backgroundColor: i >= 5 ? 'dodgerblue' : 'transparent'}"
+    <div
+      *ngFor="let logItem of logs; let i = index "
+      [ngStyle]="{backgroundColor: i >= 5 ? 'dodgerblue' : 'transparent'}"
       [ngClass]="{'white-text': i >= 5}">
       {{i}} - {{logItem}}
     </div>
