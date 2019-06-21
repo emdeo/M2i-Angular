@@ -35,6 +35,8 @@ Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu e
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular1.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular3.PNG" width="55%" height="55%">
 
+[Remonter vers la table des matières](#tblMatieres)
+
 ## Projet 2 - angapp2
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angapp2.PNG" alt="maquette angapp2"  width="55%" height="55%">
@@ -100,6 +102,8 @@ A chaque clic de bouton, ce code permet d'afficher le mot de passe et le moment 
         background-color: palegreen;
         border: 1px solid green;
     }
+
+[Remonter vers la table des matières](#tblMatieres)
 
 ## Projet 3 - angAppBDD
 
@@ -288,3 +292,4 @@ Afficher la liste de posts.
         <p *ngFor="let post of lstPosts">{{post}}</p>
     </div>
 
+[Remonter vers la table des matières](#tblMatieres)
