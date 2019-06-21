@@ -1,7 +1,7 @@
 # M2i-Angular
 Introduction aux single page app dynamiques avec le meilleur framework JS de tous les temps.
 
-## Table des matières
+## Table des matières <a name="tblMatieres"></a>
 1. [Installer et utiliser Angular](#installer-et-utiliser-angular)
 2. [Projet 1 - myAngApp](#projet-1---myangapp)
 3. [Projet 2 - angapp2](#projet-2---angapp2)
@@ -26,7 +26,7 @@ La 4e commande permet de démarrer le serveur sur lequel tourne l'application (h
 
 Le 5e commande est utile pour générer un nouveau dossier dans notre projet contenant tous les fichiers, classes et méthodes générés automatiquement.
 
-[Table des matières](#table-des-matieres)
+[Remonter vers la table des matières](#tblMatieres)
 
 ## Projet 1 - myAngApp
 
