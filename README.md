@@ -3,9 +3,9 @@ Introduction aux single page app dynamiques avec le meilleur framework JS de tou
 
 ## Table des matières
 1. [Installer et utiliser Angular](#installer-et-utiliser-angular)
-2. [Projet 1 - myAngApp](#projet-1-myangapp)
-3. [Projet 2 - angapp2](#projet-2-angapp2)
-4. [Projet 3 - angAppBDD](#projet-3-angappbdd)
+2. [Projet 1 - myAngApp](#projet-1---myangapp)
+3. [Projet 2 - angapp2](#projet-2---angapp2)
+4. [Projet 3 - angAppBDD](#projet-3---angappbdd)
 
 ## Installer et utiliser Angular
 
