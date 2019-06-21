@@ -1,7 +1,7 @@
 # M2i-Angular
 Introduction aux single page app dynamiques avec le meilleur framework JS de tous les temps.
 
-### Installer et utiliser Angular
+## Installer et utiliser Angular
 
 Dans un terminal, entrer les commandes suivantes :
 
@@ -20,18 +20,18 @@ La 4e commande permet de démarrer le serveur sur lequel tourne l'application (h
 
 Le 5e commande est utile pour générer un nouveau dossier dans notre projet contenant tous les fichiers, classes et méthodes générés automatiquement.
 
-### Projet 1 - myAngApp
+## Projet 1 - myAngApp
 
 Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu en cours.
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular1.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular3.PNG" width="55%" height="55%">
 
-### Projet 2 - angapp2
+## Projet 2 - angapp2
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angapp2.PNG" alt="maquette angapp2"  width="55%" height="55%">
 
-Fichier **app.component.html** :
+### Fichier **app.component.html** :
 
     <!-- Bouton -->
     <button class="btn btn-primary"
@@ -59,7 +59,7 @@ Le **div** sert à afficher une liste de logs. Les 5 premiers logs sont affiché
 
 A chaque clic de bouton, ce code permet d'afficher le mot de passe et le moment où le bouton a été cliqué.
 
-Fichier **app.component.ts** :
+### Fichier **app.component.ts** :
 
     import { Component } from '@angular/core';
 
@@ -80,7 +80,7 @@ Fichier **app.component.ts** :
       }
     }
 
-Fichier **app.component.css** :
+### Fichier **app.component.css** :
 
     .white-text{
         color: white;
@@ -93,14 +93,14 @@ Fichier **app.component.css** :
         border: 1px solid green;
     }
 
-### Projet 3 - angAppBDD
+## Projet 3 - angAppBDD
 
 Intro à Angular et la gestion de BDD (Firebase). L'application permet à l'utilisateur de sauvegarder les données d'un formulaire dans une base de donénes et de récupérer ces sauvegardes pour les afficher sur la page.
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd1.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd2.PNG" width="55%" height="55%">
 
-#### Fichier **app.module.ts**
+### Fichier **app.module.ts**
 
 Créer le module **FormsModule** (pour récupérer les données entrées dans le formulaire par l'utilisateur) et **HttpClientModule** (pour les requêtes http).
 
@@ -120,7 +120,7 @@ On définit ensuite le rôle des modules dans la clé **imports** de **NgModule*
 
 Le reste du fichier est inchangé.
 
-#### Fichier **post.modele.ts**
+### Fichier **post.modele.ts**
 
 Il permet de décrire le format d'un objet post que l'application va échanger avec la base de données. 
 
@@ -130,7 +130,7 @@ Il permet de décrire le format d'un objet post que l'application va échanger a
         id?: string // Le '?' signifie que cet attribut est optionnel
     }
 
-#### Fichier **app.component.ts**
+### Fichier **app.component.ts**
 
 Avant de définir la classe, pensez à importer les bibliothèques nécessaires à l'exécution du code. **HttpClient** permet de générer des requêtes HTTP ; **map** contient les opérateurs utilisé dans le pipe() ; **Post** définit le format attendu d'un post (voir plus haut).
 
@@ -210,48 +210,73 @@ Récupérer les données stockées dans la base de données.
       }
 
 
-#### Fichier **app.component.html**
+### Fichier **app.component.html**
+
+Jumbotron avec texte centré horizontalement (voir classe *center* dans **app.component.css**).
 
     <div class="jumbotron center">
       <h1 class="display-5">{{titreJumbo}}</h1>
       <p class="lead">{{leadJumbo}}</p>
     </div>
 
-    <div class="container">
+Le reste du code est dans un **div** de class *container*. On commence par créer un **formulaire** (attention : '#postForm' recquiert le module '@angular/forms').
 
-      <!-- '#postForm' recquiert le module '@angular/forms' -->
-      <form #postForm="ngForm" (ngSubmit)="onCreerPost(postForm.value)">
+    <form #postForm="ngForm" (ngSubmit)="onCreerPost(postForm.value)">
+        ...
+    </form>
 
-        <div class="form-group aumilieu">
-          <h5>Titre</h5>
-          <input type="text" class="form-control col-sm-7" id="txtTitre" required ngModel name="txtTitre"
-            [placeholder]="titrePost" [value]="titrePost">
-        </div>
+Les deux premières **div** contiennent un titre et un **input** centrés horizontalement (voir classe *aumilieu* dans **app.component.css**).
 
-        <div class="form-group aumilieu">
-          <h5>Contenu</h5>
-          <textarea class="form-control col-sm-7" id="txtContenu" required ngModel name="txtContenu"
-            [placeholder]="contenuPost"></textarea>
-        </div>
-
-        <div class="form-group aumilieu">
-          <button class="btn btn-primary espacer" id="btnPoster" [disabled]="!postForm.valid"
-            (click)="onCreerPost()">Poster</button>
-        </div>
-
-        <hr class="my-3">
-
-        <div class="form-group aumilieu">
-          <button type="button" class="btn btn-primary espacer">Lire posts</button>
-          <button type="button" class="btn btn-warning espacer">Vider posts</button>
-        </div>
-
-        <div class="form-group aumilieu">
-          <p *ngFor="let post of lstPosts">{{post}}</p>
-        </div>
-
-      </form>
-
+    <div class="form-group aumilieu">
+        <h5>Titre</h5>
+        <input
+            type="text"
+            class="form-control col-sm-7"
+            id="txtTitre"
+            required
+            ngModel
+            name="txtTitre"
+            [placeholder]="titrePost"
+            [value]="titrePost">
     </div>
 
+    <div class="form-group aumilieu">
+        <h5>Contenu</h5>
+        <textarea
+            class="form-control col-sm-7"
+            id="txtContenu"
+            required
+            ngModel
+            name="txtContenu"
+            [placeholder]="contenuPost">
+        </textarea>
+    </div>
+
+Un bouton permettant de poster les inputs dans la base de données. Le bouton est désactivé tant que le formulaire n'est pas rempli (propriété *required* des inputs ci-dessus).
+
+    <div class="form-group aumilieu">
+        <button
+            class="btn btn-primary espacer"
+            id="btnPoster"
+            [disabled]="!postForm.valid">
+                Poster
+        </button>
+    </div>
+
+Une ligne séparant la page.
+
+    <hr class="my-3">
+
+Deux boutons permettant d'afficher la liste de posts et de vider la base de données.
+
+    <div class="form-group aumilieu">
+        <button type="button" class="btn btn-primary espacer">Lire posts</button>
+        <button type="button" class="btn btn-warning espacer">Vider posts</button>
+    </div>
+
+Afficher la liste de posts.
+
+    <div class="form-group aumilieu">
+        <p *ngFor="let post of lstPosts">{{post}}</p>
+    </div>
 
