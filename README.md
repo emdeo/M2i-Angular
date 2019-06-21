@@ -97,36 +97,161 @@ Fichier **app.component.css** :
 
 Intro à Angular et la gestion de BDD (Firebase). L'application permet à l'utilisateur de sauvegarder les données d'un formulaire dans une base de donénes et de récupérer ces sauvegardes pour les afficher sur la page.
 
-<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd1.PNG">
-<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd2.PNG">
+<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd1.PNG" width="55%" height="55%">
+<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd2.PNG" width="55%" height="55%">
 
-Fichier **app.module.ts** : créer le module **FormsModule** (pour récupérer les données entrées dans le formulaire par l'utilisateur) et **HttpClientModule** (pour les requêtes http).
+#### Fichier **app.module.ts**
 
-    import { BrowserModule } from '@angular/platform-browser';
-    import { NgModule } from '@angular/core';
-**  import { FormsModule } from '@angular/forms';
+Créer le module **FormsModule** (pour récupérer les données entrées dans le formulaire par l'utilisateur) et **HttpClientModule** (pour les requêtes http).
+
+La première étape consiste à importer et nommer les modules.
+
+    import { FormsModule } from '@angular/forms';
     import { HttpClientModule } from '@angular/common/http';
 
-    import { AppComponent } from './app.component';
+On définit ensuite le rôle des modules dans la clé **imports** de **NgModule**.
 
     @NgModule({
-      declarations: [
-        AppComponent
-      ],
       imports: [
-        BrowserModule,
         FormsModule,
         HttpClientModule
-      ],
-      providers: [],
-      bootstrap: [AppComponent]
+      ]
     })
-    export class AppModule { }
 
-Fichier **app.component.ts** :
+Le reste du fichier est inchangé.
 
-Fichier **app.component.html** :
+#### Fichier **post.modele.ts**
 
-Fichier **app.component.css** :
+Il permet de décrire le format d'un objet post que l'application va échanger avec la base de données. 
 
-Fichier **post.modele.ts** :
+    export interface Post {
+        title: string
+        content: string
+        id?: string // Le '?' signifie que cet attribut est optionnel
+    }
+
+#### Fichier **app.component.ts**
+
+Avant de définir la classe, pensez à importer les bibliothèques nécessaires à l'exécution du code. **HttpClient** permet de générer des requêtes HTTP ; **map** contient les opérateurs utilisé dans le pipe() ; **Post** définit le format attendu d'un post (voir plus haut).
+
+    import { HttpClient } from '@angular/common/http'
+    import { map } from 'rxjs/operators'
+    import { Post } from './post.modele'
+
+On commence par créer les attributs de la classe **AppComponent**.
+
+      titreJumbo = "Angular & stockage externe"
+      leadJumbo = "La gestion de BDD avec Firebase"
+      titrePost = "Alice"
+      contenuPost = "Mais alors, si le monde n'a absolument aucun sens, qui nous empêche d'en inventer un ?"
+
+Adresse de la BDD Firebase (consultable depuis "https://console.firebase.google.com/project/angappdb1/database/angappdb1/data")
+
+      url = "https://angappdb1.firebaseio.com/"
+      urlPosts = this.url + "/posts.json"
+
+Le constructeur de la classe est vide. Il prend en paramètre une requête HTTP.
+
+      constructor(private http: HttpClient) {
+
+      }
+
+**ngOnInit()** s'éxécute au lancement de la page. Il exécute **readAllBDD()**.
+
+      ngOnInit() {
+        this.readallBDD();
+      }
+
+Envoyer une requête *POST*.
+
+      onCreerPost(donneesPostees: Post) {
+        console.log(donneesPostees)
+
+        // Poster les données sur la BDD (url en paramètre)
+        this.http.post(
+          this.urlPosts,
+          donneesPostees
+        ).subscribe(reponse => { // pas de subscribe() == pas de requête HTTP !!!
+          console.log(reponse)
+        })
+      }
+
+Envoyer une requête *GET*.
+
+      onLirePosts() {
+        this.readallBDD()
+      }
+
+Récupérer les données stockées dans la base de données.
+
+      private readallBDD() {
+
+        this.http
+          .get<{ [key: string]: Post }> // le format du post doit correspondre au modèle défini dans 'post.modele.ts'
+          (this.urlPosts)               // url de la bdd
+          .pipe(                        // pipe() permet de de mettre en forme les données avec des opérateurs - par ex. map()
+            map(reponse => {
+
+              const lstPosts: Post[] = []   // liste des posts stockés dans la bdd
+              for (const key in reponse) {  // par ex. "Lhu9iQIeFgNotw0vQii"
+
+                // On s'assure qu'on récupère l'objet qui nous intéresse (et non pas un prototype)
+                if (reponse.hasOwnProperty(key)) {
+
+                  // Ajouter un objet à la liste à chaque itération. Chaque objet est identifiable par sa clé cryptée
+                  lstPosts.push({ ...reponse[key], id: key })
+                }
+              }
+              return lstPosts
+            }))
+          .subscribe(posts => {   // récupérer une liste de posts tels qu'ils ont été créés par l'utilisateur
+            console.log(posts)    // affiche le contenu de la BDD dans la console du navigateur
+          })
+      }
+
+
+#### Fichier **app.component.html**
+
+    <div class="jumbotron center">
+      <h1 class="display-5">{{titreJumbo}}</h1>
+      <p class="lead">{{leadJumbo}}</p>
+    </div>
+
+    <div class="container">
+
+      <!-- '#postForm' recquiert le module '@angular/forms' -->
+      <form #postForm="ngForm" (ngSubmit)="onCreerPost(postForm.value)">
+
+        <div class="form-group aumilieu">
+          <h5>Titre</h5>
+          <input type="text" class="form-control col-sm-7" id="txtTitre" required ngModel name="txtTitre"
+            [placeholder]="titrePost" [value]="titrePost">
+        </div>
+
+        <div class="form-group aumilieu">
+          <h5>Contenu</h5>
+          <textarea class="form-control col-sm-7" id="txtContenu" required ngModel name="txtContenu"
+            [placeholder]="contenuPost"></textarea>
+        </div>
+
+        <div class="form-group aumilieu">
+          <button class="btn btn-primary espacer" id="btnPoster" [disabled]="!postForm.valid"
+            (click)="onCreerPost()">Poster</button>
+        </div>
+
+        <hr class="my-3">
+
+        <div class="form-group aumilieu">
+          <button type="button" class="btn btn-primary espacer">Lire posts</button>
+          <button type="button" class="btn btn-warning espacer">Vider posts</button>
+        </div>
+
+        <div class="form-group aumilieu">
+          <p *ngFor="let post of lstPosts">{{post}}</p>
+        </div>
+
+      </form>
+
+    </div>
+
+
