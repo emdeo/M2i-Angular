@@ -20,14 +20,16 @@ La 4e commande permet de démarrer le serveur sur lequel tourne l'application (h
 
 Le 5e commande est utile pour générer un nouveau dossier dans notre projet contenant tous les fichiers, classes et méthodes générés automatiquement.
 
-### Exercice 1 - myAngApp
+### Projet 1 - myAngApp
 
 Le dossier **myAngApp_src** contient les fichiers **src** du premier projet vu en cours.
 
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular1.PNG" width="55%" height="55%">
 <img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angular3.PNG" width="55%" height="55%">
 
-### Exercice 2 - angapp2
+### Projet 2 - angapp2
+
+<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angapp2.PNG" alt="maquette angapp2"  width="55%" height="55%">
 
 Fichier **app.component.html** :
 
@@ -91,6 +93,40 @@ Fichier **app.component.css** :
         border: 1px solid green;
     }
 
-Résultat :
+### Projet 3 - angAppBDD
 
-<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angapp2.PNG" alt="maquette angapp2"  width="55%" height="55%">
+Intro à Angular et la gestion de BDD (Firebase). L'application permet à l'utilisateur de sauvegarder les données d'un formulaire dans une base de donénes et de récupérer ces sauvegardes pour les afficher sur la page.
+
+<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd1.PNG">
+<img src="https://raw.githubusercontent.com/emdeo/M2i-Angular/master/angAppBdd2.PNG">
+
+Fichier **app.module.ts** : créer le module **FormsModule** (pour récupérer les données entrées dans le formulaire par l'utilisateur) et **HttpClientModule** (pour les requêtes http).
+
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+**  import { FormsModule } from '@angular/forms';
+    import { HttpClientModule } from '@angular/common/http';
+
+    import { AppComponent } from './app.component';
+
+    @NgModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+
+Fichier **app.component.ts** :
+
+Fichier **app.component.html** :
+
+Fichier **app.component.css** :
+
+Fichier **post.modele.ts** :
