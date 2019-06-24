@@ -164,7 +164,7 @@ On commence par créer les attributs de la classe **AppComponent**.
       titrePost = "Alice"
       contenuPost = "Mais alors, si le monde n'a absolument aucun sens, qui nous empêche d'en inventer un ?"
 
-Adresse de la BDD Firebase (consultable depuis "https://console.firebase.google.com/project/angappdb1/database/angappdb1/data")
+Adresse de la BDD Firebase (consultable depuis "https://console.firebase.google.com/project/angappdb1/database/angappdb1/data", requiert une authentification de compte Google).
 
       url = "https://angappdb1.firebaseio.com/"
       urlPosts = this.url + "/posts.json"
