@@ -107,7 +107,7 @@ A chaque clic de bouton, ce code permet d'afficher le mot de passe et le moment 
 
 ## Projet 3 - angAppBDD
 
-Intro à Angular et la gestion de BDD (Firebase). L'application permet à l'utilisateur de sauvegarder les données d'un formulaire dans une base de donénes et de récupérer ces sauvegardes pour les afficher sur la page.
+Intro à Angular et la gestion de BDD (Firebase). L'application permet à l'utilisateur de sauvegarder les données d'un formulaire dans une base de données et de récupérer ces sauvegardes pour les afficher sur la page.
 
 Produit final de l'application :
 
